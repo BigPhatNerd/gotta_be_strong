@@ -1,0 +1,28 @@
+<br />
+<div class="booyah-box col-10 offset-1">
+    <h1> Add a new Program</h1>
+    <%= simple_form_for @program, url: instructor_programs_path do |f| %>
+    <%= f.input :title, placeholder: "ex Week1 Day1 " %>
+    <div class="container ">
+        <div class="row">
+            <div class="col-4  exercise">
+                <%= f.input :exercise %>
+            </div>
+            <div class="col-1 ">
+                <div class="sets">
+                    <%= f.input :sets %>
+                </div>
+            </div>
+            <div class=" col-1 reps">
+                <div class="reps">
+                    <%= f.input :reps %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= f.input :intensity%>
+    <%= f.input :tempo %>
+    <%= f.input :rest %>
+    <%= f.submit "Create", class: 'btn btn-primary' %>
+    <% end %>
+</div>

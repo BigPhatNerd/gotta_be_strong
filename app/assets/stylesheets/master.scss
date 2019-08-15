@@ -52,9 +52,39 @@ h6,
     border: 1px solid #ccc;
     border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
     padding: 10px;
+    text-align: left;
+
 }
+
+h1 {
+    text-align: center;
+}
+
+
 
 .booyah-box h2,
 .booyah-box h1 {
     margin: 10px;
+}
+
+.exercise {
+    width: 35vw;
+
+
+
+}
+
+.form-control {
+    width: 57%;
+}
+
+.sets {
+    width: 100px;
+
+
+}
+
+.reps {
+    width: 10vw;
+
 }
