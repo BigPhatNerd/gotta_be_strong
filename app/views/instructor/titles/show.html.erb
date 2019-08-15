@@ -8,11 +8,71 @@
     <div class="text-center">
         <%= link_to 'Add a new workout...', new_instructor_title_program_path(@title), class: 'btn btn-primary btn-lg' %>
     </div>
-    <ul>
-        <% @title.programs.each do |program| %>
-        <li>
-            <%= program.exercise %>
-        </li>
-        <% end %>
-    </ul>
+    <br />
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <div class="row">
+                    <div class="col-2">
+                        <tr>
+                            <th> Movement</th>
+                    </div>
+                    <div class="col-1">
+                        <th>Sets</th>
+                    </div>
+                    <div class="col-1">
+                        <th>Reps</th>
+                    </div>
+                    <div class="col-1">
+                        <th> Intensity</th>
+                    </div>
+                    <div class="col-1">
+                        <th>Tempo</th>
+                    </div>
+                    <div class="col-1">
+                        <th> Rest</th>
+                    </div>
+                </div>
+                </tr>
+            </thead>
+            <tbody>
+                <% @title.programs.each do |program| %>
+                <div class="row">
+                    <div class="col-2">
+                        <tr>
+                            <td>
+                                <%= program.exercise %>
+                            </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <%= program.sets %>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <%= program.reps %>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <%= program.intensity %>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <%= program.tempo %>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <%= program.rest %>
+                        </td>
+                    </div>
+                    </tr>
+                </div>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 </div>
