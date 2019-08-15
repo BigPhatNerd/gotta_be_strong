@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_221640) do
+ActiveRecord::Schema.define(version: 2019_08_15_151258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "programs", force: :cascade do |t|
-    t.string "title"
     t.string "exercise"
     t.integer "sets"
     t.integer "reps"
@@ -26,12 +25,20 @@ ActiveRecord::Schema.define(version: 2019_08_14_221640) do
     t.integer "tempo"
     t.integer "rest"
     t.text "notes"
-    t.integer "user_id"
+    t.integer "title_id"
     t.boolean "exercise_completed", default: false
     t.boolean "workout_completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_programs_on_user_id"
+    t.index ["title_id"], name: "index_programs_on_title_id"
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_titles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

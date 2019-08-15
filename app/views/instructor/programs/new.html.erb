@@ -1,11 +1,15 @@
 <br />
 <div class="booyah-box col-10 offset-1">
     <h1> Add a new Program</h1>
-    <%= simple_form_for @program, url: instructor_programs_path do |f| %>
-    <%= f.input :title, placeholder: "ex Week1 Day1 " %>
+    <%= simple_form_for @program, url: instructor_title_programs_path do |f| %>
     <div class="container ">
         <div class="row">
-            <div class="col-4  exercise">
+            <div class="col-8">
+                <%= f.input :title, placeholder: "ex Week1 Day1 " %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6  exercise">
                 <%= f.input :exercise %>
             </div>
             <div class="col-1 ">
@@ -19,10 +23,22 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-8">
+                <%= f.input :intensity%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <%= f.input :tempo %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <%= f.input :rest %>
+            </div>
+        </div>
+        <%= f.submit "Create", class: 'btn btn-primary' %>
+        <% end %>
     </div>
-    <%= f.input :intensity%>
-    <%= f.input :tempo %>
-    <%= f.input :rest %>
-    <%= f.submit "Create", class: 'btn btn-primary' %>
-    <% end %>
 </div>

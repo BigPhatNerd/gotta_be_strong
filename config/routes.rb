@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  root 'static_pages#index'
 
  namespace :instructor do 
- 	resources :programs, only: [:new, :create, :show]
- end
+ 	resources :titles, only: [:new, :create, :show] 
+ 	end
+
 end

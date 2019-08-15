@@ -1,13 +1,17 @@
 class Instructor::ProgramsController < ApplicationController
-before_action :authenticate_user!
-validates :title, presence: true
+
+
 def new
 	@program = Program.new
 end
 
 def create
 @program = current_user.programs.create(program_params)
+if @course.valid?
 redirect_to instructor_program_path(@program)
+else
+	render :new, status: :unprocessable_entity
+end
 	end
 
 	def show
