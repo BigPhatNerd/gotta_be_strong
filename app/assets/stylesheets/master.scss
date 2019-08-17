@@ -1,6 +1,11 @@
 @import "bootstrap";
 @import "font-awesome";
 
+html,
+body {
+    height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -11,22 +16,22 @@ h6,
     margin: 0;
 }
 
+#index {
+    color: white;
+}
+
 .hero {
     background: image_url('hero.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 470px;
+    height: 100%;
+    margin-top: -20px;
 
 }
 
-.frosty {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
 
-
-}
 
 .clr {
     clear: both;

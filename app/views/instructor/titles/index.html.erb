@@ -1,6 +1,6 @@
 <br />
 <div class="booyah-box col-10 offset-1">
-    <h1 class="text-center">You Gotta Be Strong</h1>
+    <h1 class="text-center">Instructor Title Index Page</h1>
     <hr />
     <% @titles.each do |title| %>
     <h2 class="text-center">
@@ -9,9 +9,8 @@
     <br />
     </h2>
     <div class=" text-center">
-        <%= link_to 'View Workout', title_path(title), class: 'btn btn-primary btn-large' %>
+        <%= link_to 'View Workout', instructor_title_path(title), class: 'btn btn-primary btn-large' %>
     </div>
-    <br class="clr" />
     <% end %>
     <br />
     <br />

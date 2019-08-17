@@ -1,0 +1,2 @@
+module MaxWeightsHelper
+end

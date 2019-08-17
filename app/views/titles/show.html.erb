@@ -3,4 +3,113 @@
     <h1>
         <%= @title.title %>
     </h1>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <div class="row">
+                    <div class="col-1">
+                        <tr>
+                            <th>
+                                <h3> Movement</h3>
+                            </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center">Sets</h3>
+                        </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center">Reps</h3>
+                        </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center"> Intensity</h3>
+                        </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center"> Load</h3>
+                        </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center">Tempo</h3>
+                        </th>
+                    </div>
+                    <div class="col-1">
+                        <th>
+                            <h3 class="text-center">Rest</h3>
+                        </th>
+                    </div>
+                </div>
+                </tr>
+            </thead>
+            <tbody>
+                <% @title.programs.each do |program| %>
+                <div class="row">
+                    <div class="col-1">
+                        <tr>
+                            <td>
+                                <h3>
+                                    <%= program.exercise %>
+                                </h3>
+                            </td>
+                    </div>
+                    <div class="col-1 text-center">
+                        <td>
+                            <h3 class="text-center">
+                                <%= program.sets %>
+                            </h3>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <%= program.reps %>
+                            </h3>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <% if program.intensity %>
+                                <%= (program.intensity) * 2 %>%
+                                <% end %>
+                            </h3>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <%= program.prescribed_load %>
+                            </h3>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <%= program.tempo %>
+                            </h3>
+                        </td>
+                    </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <%= program.rest %>
+                            </h3>
+                        </td>
+                        </td>
+                    </div>
+                    </tr>
+                </div>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div class="text-center">
+    <%= link_to 'Back to Program', titles_path, class: 'btn btn-primary btn-large' %>
 </div>

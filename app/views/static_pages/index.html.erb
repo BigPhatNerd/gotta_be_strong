@@ -1,11 +1,16 @@
 <div class="hero">
-    <div class="frosty col-10 offset-1 text-center">
+    <div class="col-10 offset-1 text-center">
         <br />
-        <h1> Here is the homepage/signin button</h1>
+        <h1 id="index"> Here is the homepage/signin button</h1>
         <br />
         <%= link_to ' View Workout', titles_path, class: 'btn btn-success' %>
         <br />
         <br />
-        <%= link_to 'Create a Workout', new_instructor_title_path %>
+        <%= link_to 'Create a Workout', new_instructor_title_path, class: 'btn btn-success' %>
+        <br />
+        <br />
+        <%= link_to 'Enter Max Weights', new_max_weight_path, class: 'btn btn-success' %>
+        <br />
+        <br />
     </div>
 </div>

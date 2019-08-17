@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_151258) do
+ActiveRecord::Schema.define(version: 2019_08_15_233031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "max_weights", force: :cascade do |t|
+    t.integer "max_squat"
+    t.integer "max_bench"
+    t.integer "max_deadlift"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_max_weights_on_user_id"
+  end
 
   create_table "programs", force: :cascade do |t|
     t.string "exercise"
@@ -22,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_151258) do
     t.integer "intensity"
     t.integer "prescribed_load"
     t.integer "actual_load"
-    t.integer "tempo"
+    t.string "tempo"
     t.integer "rest"
     t.text "notes"
     t.integer "title_id"
@@ -44,9 +54,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_151258) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "max_squat"
-    t.integer "max_bench"
-    t.integer "max_deadlift"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

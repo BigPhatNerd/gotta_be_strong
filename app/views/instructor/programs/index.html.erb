@@ -1,0 +1,25 @@
+<div class="booyah-box col-10 offset-1">
+    <h1 class="text-center">Programs Index Page</h1>
+    <hr />
+    <% @programs.each do |program| %>
+    <h2 class="text-center">
+        <%=  program.title_id %>
+        <%= program.exercise %>
+    </h2>
+    <br />
+    </h2>
+    <div class=" text-center">
+        <%= link_to 'View Workout', instructor_title_path(title), class: 'btn btn-primary btn-large' %>
+    </div>
+    <% end %>
+    <br />
+    <br />
+    <div class="text-center">
+        <%= link_to 'Homepage', root_path, class: 'btn btn-primary btn-large' %>
+    </div>
+</div>
+<div class="col-1">
+    <td>
+        <%= link_to 'Edit Workout', edit_instructor_title_program_path(@program), class: 'btn btn-primary btn-large' %>
+    </td>
+</div>
