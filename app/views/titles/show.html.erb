@@ -74,16 +74,24 @@
                     <div class="col-1">
                         <td>
                             <h3 class="text-center">
-                                <% if program.intensity %>
-                                <%= (program.intensity) * 2 %>%
-                                <% end %>
+                                <%= program.intensity%>%
                             </h3>
                         </td>
                     </div>
                     <div class="col-1">
                         <td>
                             <h3 class="text-center">
-                                <%= program.prescribed_load %>
+                                <% if program.exercise.include? "quat" %>
+                                <%= (@max_weight.max_squat * (program.intensity * 0.01)).to_i %>lbs.
+                                <% elsif program.exercise.include? "Bench" %>
+                                <%= (@max_weight.max_bench * (program.intensity * 0.01)).to_i %>lbs.
+                                <% elsif program.exercise.include? "Dead" %>
+                                <%= (@max_weight.max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
+                                <% elsif program.intensity < 20 %>
+                                <%= program.intensity%>RPE
+                                <% else %>
+                                <%= "" %>
+                                <% end %>
                             </h3>
                         </td>
                     </div>
@@ -111,5 +119,10 @@
 </div>
 <br />
 <div class="text-center">
-    <%= link_to 'Back to Program', titles_path, class: 'btn btn-primary btn-large' %>
+    <%= link_to 'Back to Program', titles_path, class: 'btn btn-success btn-large' %>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />

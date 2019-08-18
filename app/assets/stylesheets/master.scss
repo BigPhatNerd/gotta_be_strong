@@ -1,9 +1,20 @@
 @import "bootstrap";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
 html,
 body {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    background: image_url('moreweights.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 100%;
+    margin: 0;
+    padding: 0;
+
 }
 
 h1,
@@ -18,18 +29,36 @@ h6,
 
 #index {
     color: white;
-}
-
-.hero {
-    background: image_url('hero.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    margin-top: -20px;
+    margin-top: 20px;
+    font-size: 65px;
 
 }
+
+.black {
+    background-color: black;
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-success {
+    border-radius: 2px;
+    background: black;
+    border-color: white;
+    width: 240px;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background: white;
+    border-color: black;
+    color: black;
+}
+
+
+
+
+
 
 
 
@@ -38,7 +67,7 @@ h6,
 }
 
 .frosty h1 {
-    font-family: "Helvetica Neue", Helvetica;
+    font-family: 'Oswald', sans-serif;
     font-weight: 100;
     text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
@@ -57,7 +86,7 @@ h6,
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
     box-shadow: 1px 1px 2px 0 #d0d0d0;
-    background: #fff;
+    background: #F1F1F1;
     border: 1px solid #ccc;
     border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
     padding: 10px;
@@ -67,6 +96,7 @@ h6,
 
 h1 {
     text-align: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 

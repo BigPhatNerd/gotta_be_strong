@@ -1,0 +1,25 @@
+<div class="booyah-box col-10 offset-1">
+    <h1 class="text-center">Max Weights Page</h1>
+    <hr />
+    <%= @max_bench %>
+    <% @max_weights.each do |max_weight| %>
+    <h2 class="text-center">
+        Max Bench:
+        <%= max_weight.max_bench %>
+        <br />
+        Max Squat
+        <%= max_weight.max_squat %>
+        <br />
+        Max Deadlift
+        <%= max_weight.max_deadlift %>
+    </h2>
+    <% end %>
+    <div class="text-center">
+        <%= link_to 'Enter Max', new_max_weight_path, class: 'btn btn-success' %>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />

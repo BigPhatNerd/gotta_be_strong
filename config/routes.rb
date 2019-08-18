@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
 
  resources :titles, only: [:index, :show]
- resources :max_weights, only: [:new, :create,:show, :edit, :update, :destroy]
+ resources :programs, only: [:index, :show]
+ resources :max_weights, only: [:index, :new, :create,:show, :edit, :update, :destroy]
  namespace :instructor do 
  	resources :titles, only: [:index, :new, :create, :show, :edit, :update, :destroy] do 
  		resources :programs, only: [:index, :new, :create, :edit, :update, :destroy]
