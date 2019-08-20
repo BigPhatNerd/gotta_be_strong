@@ -1,0 +1,27 @@
+<br />
+<div class="booyah-box col-10 offset-1  text-center">
+    <h1> Edit Max</h1>
+    <%= simple_form_for @max_weight, url: max_weight_path do |f| %>
+    <div class="container ">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%= f.input :max_bench, placeholder: "ex 100 " %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%= f.input :max_squat, placeholder: "ex 200" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%= f.input :max_deadlift, placeholder: "ex 300" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%=f.submit 'Update' , class: 'btn btn-success' %>
+                <% end %>
+            </div>
+        </div>
+    </div>

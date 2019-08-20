@@ -46,10 +46,7 @@ class Instructor::TitlesController < ApplicationController
 
 	def destroy
 		@title = Title.find(params[:id])
-		if @title.user != current_user
-			return render plain: 'Not Allowed', status: :forbidden
-		end
-
+		
 		@title.destroy
 		redirect_to instructor_titles_path
 

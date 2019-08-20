@@ -4,6 +4,9 @@
     <%= @max_bench %>
     <% @max_weights.each do |max_weight| %>
     <h2 class="text-center">
+        Date Entered:
+        <%= max_weight.created_at.strftime("%m-%d-%Y") %>
+        <br />
         Max Bench:
         <%= max_weight.max_bench %>
         <br />
@@ -13,7 +16,16 @@
         Max Deadlift
         <%= max_weight.max_deadlift %>
     </h2>
+    <br />
+    <div class="text-center">
+        <%= link_to 'Edit', max_weight_path(max_weight) , class: 'btn btn-success' %>
+    </div>
+    <br />
+    <div class="text-center">
+        <%= link_to 'Destroy', max_weight_path(max_weight), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
+    </div>
     <% end %>
+    <br />
     <div class="text-center">
         <%= link_to 'Enter Max', new_max_weight_path, class: 'btn btn-success' %>
     </div>

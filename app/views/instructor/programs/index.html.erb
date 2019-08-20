@@ -1,25 +1,32 @@
 <div class="booyah-box col-10 offset-1">
     <h1 class="text-center">Programs Index Page</h1>
     <hr />
+    <% @titles.each do |title| %>
+    <h1 class="text-center">
+        <hr />
+        <%=  title.title %>
+    </h1>
+    <br />
     <% @programs.each do |program| %>
     <h2 class="text-center">
-        <%=  program.title_id %>
         <%= program.exercise %>
     </h2>
     <br />
-    </h2>
-    <div class=" text-center">
-        <%= link_to 'View Workout', instructor_title_path(title), class: 'btn btn-success btn-large' %>
+    <div class="text-center">
+        <%= link_to 'Edit Workout', edit_instructor_program_path(program), class: 'btn btn-success btn-large' %>
     </div>
+    <div class="text-center">
+        <%= link_to 'Destroy', instructor_program_path(title, program), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
+    </div>
+    <br />
+    <div class=" text-center">
+        <%= link_to 'View Workout', instructor_program_path(program), class: 'btn btn-success btn-large' %>
+    </div>
+    <% end %>
     <% end %>
     <br />
     <br />
     <div class="text-center">
         <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
     </div>
-</div>
-<div class="col-1">
-    <td>
-        <%= link_to 'Edit Workout', edit_instructor_title_program_path(@program), class: 'btn btn-primary btn-large' %>
-    </td>
 </div>

@@ -81,17 +81,6 @@
                     <div class="col-1">
                         <td>
                             <h3 class="text-center">
-                                <% if program.exercise.include? "quat" %>
-                                <%= (@max_weight.max_squat * (program.intensity * 0.01)).to_i %>lbs.
-                                <% elsif program.exercise.include? "Bench" %>
-                                <%= (@max_weight.max_bench * (program.intensity * 0.01)).to_i %>lbs.
-                                <% elsif program.exercise.include? "Dead" %>
-                                <%= (@max_weight.max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
-                                <% elsif program.intensity < 20 %>
-                                <%= program.intensity%>RPE
-                                <% else %>
-                                <%= "" %>
-                                <% end %>
                             </h3>
                         </td>
                     </div>

@@ -13,6 +13,8 @@ before_action :authenticate_user!
 		@max_bench = @max_weight.max_bench
 		@max_squat = @max_weight.max_squat
 		@max_deadlift = @max_weight.max_deadlift
+
+		
 		
 	end
 	

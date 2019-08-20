@@ -25,7 +25,7 @@
         <table class="table table-striped">
             <thead>
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-1">
                         <tr>
                             <th>
                                 <h3> Movement</h3>
@@ -105,12 +105,21 @@
                             </h3>
                         </td>
                     </div>
+                    <div class="col-1">
+                        <td>
+                            <h3 class="text-center">
+                                <%= link_to 'All Workouts', instructor_title_programs_path(program), class: 'btn btn-success btn-lg' %>
+                            </h3>
+                        </td>
+                    </div>
                 </div>
                 </tr>
                 <br />
                 <br />
-                <% end %>
-            </tbody>
-        </table>
+    </div>
+    <% end %>
+    </tbody>
+    </table>
+   <div class="text-center">
     </div>
 </div>

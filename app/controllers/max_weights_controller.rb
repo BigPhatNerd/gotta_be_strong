@@ -7,7 +7,7 @@ class MaxWeightsController < ApplicationController
 
 	def create
 		@max_weight = current_user.max_weights.create(max_weight_params)
-		redirect_to titles_path
+		redirect_to max_weight_path(@max_weight)
 	end
 
 	def index
@@ -16,19 +16,26 @@ class MaxWeightsController < ApplicationController
 	end
 
 	def show
-		@max_weight = current_user.max_weights.params([:id])
+		@max_weight = MaxWeight.find(params[:id])
 	end
 
 	def edit
 		@max_weight = MaxWeight.find(params[:id])
-		if @max_weight.user != current_user
-			return render plain: 'Not Allowed', status: :forbidden
-		end
-
+		
 	end
 
 	def update
 @max_weight = MaxWeight.find(params[:id])
+redirect_to max_weights_path
+	end
+
+	def destroy
+		@max_weight = MaxWeight.find(params[:id])
+		
+
+		@max_weight.destroy
+		redirect_to max_weights_path
+
 	end
 
 	private
