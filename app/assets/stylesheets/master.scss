@@ -176,6 +176,10 @@ h1 {
     visibility: hidden;
 }
 
+#hide-create-workout {
+    visibility: hidden;
+}
+
 @media (min-width: 400px) {
     #show-when-small {
         visibility: hidden;
@@ -205,6 +209,10 @@ h1 {
     p {
         font-size: 24px;
     }
+
+    #hide-create-workout {
+        visibility: visible;
+    }
 }
 
 // Large devices (desktops, 992px and up)
@@ -212,6 +220,7 @@ h1 {
     p {
         font-size: 30px;
     }
+
 }
 
 // Extra large devices (large desktops, 1200px and up)
