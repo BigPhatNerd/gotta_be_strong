@@ -16,13 +16,6 @@
         <%= @max_weight.max_deadlift %>
     </h2>
     <br class="clr" />
-    <div class=" text-center">
-        <%= link_to 'Edit Max', edit_max_weight_path(@max_weight), class: 'btn btn-success btn-large' %>
-    </div>
-    <br class="clr" />
-    <div class="text-center">
-        <%= link_to 'Destroy', max_weight_path(@max_weight), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
-    </div>
     <br />
     <div class="text-center">
         <%= link_to 'Workouts', titles_path, class: 'btn btn-success' %>

@@ -7,13 +7,10 @@ class MaxWeightsController < ApplicationController
 
 	def create
 		@max_weight = current_user.max_weights.create(max_weight_params)
-		redirect_to max_weight_path(@max_weight)
+		redirect_to root_path
 	end
 
-	def index
-		@max_weights = MaxWeight.all
-
-	end
+	
 
 	def show
 		@max_weight = MaxWeight.find(params[:id])
