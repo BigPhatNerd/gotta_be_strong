@@ -1,113 +1,139 @@
 <br />
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-12">
     <h1>
         <%= @title.title %>
     </h1>
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <div class="row">
-                    <div class="col-1">
-                        <tr>
+    <div id="show-when-small">
+        <h3 class="text-center"> Flip to Landscape Mode to View Workout</h3>
+    </div>
+    <div id="hide-when-small">
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <div class="row">
+                        <div class="col-1">
+                            <tr>
+                                <th>
+                                    <p> Movement</p>
+                                </th>
+                        </div>
+                        <div class="col-1">
                             <th>
-                                <h3> Movement</h3>
+                                <p class="text-center">Sets</p>
                             </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center">Sets</h3>
-                        </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center">Reps</h3>
-                        </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center"> Intensity</h3>
-                        </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center"> Load</h3>
-                        </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center">Tempo</h3>
-                        </th>
-                    </div>
-                    <div class="col-1">
-                        <th>
-                            <h3 class="text-center">Rest</h3>
-                        </th>
-                    </div>
-                </div>
-                </tr>
-            </thead>
-            <tbody>
-                <% @title.programs.each do |program| %>
-                <div class="row">
-                    <div class="col-1">
-                        <tr>
-                            <td>
-                                <h3>
-                                    <%= program.exercise %>
-                                </h3>
-                            </td>
-                    </div>
-                    <div class="col-1 text-center">
-                        <td>
-                            <h3 class="text-center">
-                                <%= program.sets %>
-                            </h3>
-                        </td>
-                    </div>
-                    <div class="col-1">
-                        <td>
-                            <h3 class="text-center">
-                                <%= program.reps %>
-                            </h3>
-                        </td>
-                    </div>
-                    <div class="col-1">
-                        <td>
-                            <h3 class="text-center">
-                                <%= program.intensity%>%
-                            </h3>
-                        </td>
-                    </div>
-                    <div class="col-1">
-                        <td>
-                            <h3 class="text-center">
-                            </h3>
-                        </td>
-                    </div>
-                    <div class="col-1">
-                        <td>
-                            <h3 class="text-center">
-                                <%= program.tempo %>
-                            </h3>
-                        </td>
-                    </div>
-                    <div class="col-1">
-                        <td>
-                            <h3 class="text-center">
-                                <%= program.rest %> secs
-                            </h3>
-                        </td>
-                        </td>
+                        </div>
+                        <div class="col-1">
+                            <th>
+                                <p class="text-center">Reps</p>
+                            </th>
+                        </div>
+                        <div class="col-1">
+                            <th>
+                                <p class="text-center"> Intensity</p>
+                            </th>
+                        </div>
+                        <div class="col-1">
+                            <th>
+                                <p class="text-center"> Load</p>
+                            </th>
+                        </div>
+                        <div class="col-1">
+                            <th>
+                                <p class="text-center">Tempo</p>
+                            </th>
+                        </div>
+                        <div class="col-1">
+                            <th>
+                                <p class="text-center">Rest</p>
+                            </th>
+                        </div>
                     </div>
                     </tr>
-                </div>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
-    <br />
-    <div class="text-center">
-        <%= link_to 'Back to Program', titles_path, class: 'btn btn-success btn-large' %>
+                </thead>
+                <tbody>
+                    <% @title.programs.each do |program| %>
+                    <div class="row">
+                        <div class="col-1">
+                            <tr>
+                                <td>
+                                    <p>
+                                        <%= program.exercise %>
+                                    </p>
+                                </td>
+                        </div>
+                        <div class="col-1 text-center">
+                            <td>
+                                <p class="text-center">
+                                    <%= program.sets %>
+                                </p>
+                            </td>
+                        </div>
+                        <div class="col-1">
+                            <td>
+                                <p class="text-center">
+                                    <%= program.reps %>
+                                </p>
+                            </td>
+                        </div>
+                        <div class="col-1">
+                            <td>
+                                <p class="text-center">
+                                    <% if program.intensity.nil? %>
+                                    <% ""%>
+                                    <% else %>
+                                    <%= program.intensity%>%
+                                    <% end %>
+                                </p>
+                            </td>
+                        </div>
+                        <div class="col-1">
+                            <td>
+                                <p class="text-center">
+                                    <% if program.intensity.nil? %>
+                                    <%= "-" %>
+                                    <% elsif program.exercise.include? "quat"  %>
+                                    <%= (@max_weight.max_squat * (program.intensity * 0.01)).to_i %>lbs.
+                                    <% elsif program.exercise.include? "Bench" %>
+                                    <%= (@max_weight.max_bench * (program.intensity * 0.01)).to_i %>lbs.
+                                    <% elsif program.exercise.include? "Dead" %>
+                                    <%= (@max_weight.max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
+                                    <% elsif program.intensity.present?  && program.intensity < 20 %>
+                                    <%= program.intensity%>RPE
+                                    <% elsif program.intensity.nil? %>
+                                    <% "-" %>
+                                    <% else %>
+                                    <%= "" %>
+                                    <% end %>
+                                </p>
+                            </td>
+                        </div>
+                        <div class="col-1">
+                            <td>
+                                <p class="text-center">
+                                    <%= program.tempo %>
+                                </p>
+                            </td>
+                        </div>
+                        <div class="col-1">
+                            <td>
+                                <p class="text-center">
+                                    <%= program.rest %> secs
+                                </p>
+                            </td>
+                        </div>
+                        </tr>
+                    </div>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <div class="text-center">
+            <%= link_to 'Back to Program', titles_path, class: 'btn btn-success btn-large' %>
+        </div>
+        
+        <br />
+        <br />
     </div>
 </div>
 <br />

@@ -4,8 +4,10 @@
 
 html,
 body {
-    font-family: 'Oswald', sans-serif;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald',
+        sans-serif;
+    font-family: 'Oswald',
+        sans-serif;
     background: image_url('moreweights.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -14,7 +16,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-
 }
 
 h1,
@@ -25,12 +26,27 @@ h5,
 h6,
 .navbar {
     margin: 0;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: white;
+}
+
+p {
+    font-size: 14px;
 }
 
 #index {
     color: white;
     margin-top: 20px;
-    font-size: 65px;
+    font-size: 30px;
 
 }
 
@@ -41,24 +57,56 @@ h6,
     margin-bottom: 10px;
 }
 
-.btn-success {
-    border-radius: 2px;
-    background: black;
+.btn {
+    width: 180px;
+    color: white;
+    background-color: black;
     border-color: white;
-    width: 240px;
-    font-size: 20px;
 }
 
 .btn:hover {
-    background: white;
-    border-color: black;
     color: black;
+    background-color: white;
+    border-color: black;
+}
+
+a h3 .links {
+    text-color: #28A745 !important;
+}
+
+a {
+    color: grey;
 }
 
 
+.btn-whatever {
+    color: black;
+    background-color: white;
+    border-color: black;
+    border-width: 1px;
+    width: 180px;
 
+}
 
+.btn-whatever:hover {
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-width: 1px;
 
+}
+
+.btn-danger {
+    background-color: grey;
+}
+
+.btn-small {
+    width: 90px;
+}
+
+.form {
+    color: white;
+}
 
 
 
@@ -86,11 +134,12 @@ h6,
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
     box-shadow: 1px 1px 2px 0 #d0d0d0;
-    background: #F1F1F1;
+    background-color: black;
     border: 1px solid #ccc;
     border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-    padding: 10px;
+    padding: 0px;
     text-align: left;
+    color: black;
 
 }
 
@@ -99,8 +148,11 @@ h1 {
     font-family: 'Oswald', sans-serif;
 }
 
-
-
+.form-control-label,
+.form-check-label,
+.form-group-invalid {
+    color: white;
+}
 
 
 .booyah-box h2,
@@ -108,15 +160,59 @@ h1 {
     margin: 10px;
 }
 
-@media (min-width: 400px) {}
+.edit-symbol {
+    color: white;
+}
+
+#show-when-small {
+    visibility: visible;
+}
+
+#hide-when-small {
+    visibility: hidden;
+}
+
+#hide {
+    visibility: hidden;
+}
+
+@media (min-width: 400px) {
+    #show-when-small {
+        visibility: hidden;
+    }
+
+    #hide-when-small {
+        visibility: visible;
+    }
+
+    #hide {
+        visibility: visible;
+    }
+}
 
 
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    #show-when-small {
+        visibility: hidden;
+    }
+
+    #hide {
+        visibility: visible;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    p {
+        font-size: 14px;
+    }
+}
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}

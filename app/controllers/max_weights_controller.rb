@@ -19,24 +19,7 @@ class MaxWeightsController < ApplicationController
 		@max_weight = MaxWeight.find(params[:id])
 	end
 
-	def edit
-		@max_weight = MaxWeight.find(params[:id])
-		
-	end
-
-	def update
-@max_weight = MaxWeight.find(params[:id])
-redirect_to max_weights_path
-	end
-
-	def destroy
-		@max_weight = MaxWeight.find(params[:id])
-		
-
-		@max_weight.destroy
-		redirect_to max_weights_path
-
-	end
+	
 
 	private
 

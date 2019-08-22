@@ -2,19 +2,19 @@
 <div class="booyah-box col-10 offset-1">
     <h1> Add a new Program</h1>
     <%= simple_form_for @program, url: instructor_title_programs_path do |f| %>
-    <div class="container ">
+    <div class="form container ">
         <div class="row">
         </div>
-        <div class="row">
+        <div class=" row">
             <div class="col-6  exercise">
-                <%= f.input :exercise, placeholder: "ex Bench Press" %>
+                <%= f.input :exercise, placeholder: "ex Bench" %>
             </div>
-            <div class="col-2 ">
+            <div class="col-3 ">
                 <div class="sets">
                     <%= f.input :sets, placeholder: "ex 4" %>
                 </div>
             </div>
-            <div class=" col-2 reps">
+            <div class=" col-3 reps">
                 <div class="reps">
                     <%= f.input :reps, placeholder: "ex 6" %>
                 </div>
