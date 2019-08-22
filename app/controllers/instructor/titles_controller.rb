@@ -25,7 +25,8 @@ class Instructor::TitlesController < ApplicationController
 	def edit
 		@title = Title.find(params[:id])
 		if @title.user != current_user
-			return render plain: 'Not Allowed', status: :forbidden
+			return render plain: 'Not Allowed. You must be the creator of the program to edit', status: :forbidden
+			
 		end
 	end
 

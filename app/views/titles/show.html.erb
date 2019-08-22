@@ -81,6 +81,8 @@
                                 <p class="text-center">
                                     <% if program.intensity.nil? %>
                                     <% ""%>
+                                    <% elsif program.intensity < 20 %>
+                                    <% "-" %>
                                     <% else %>
                                     <%= program.intensity%>%
                                     <% end %>
@@ -92,14 +94,14 @@
                                 <p class="text-center">
                                     <% if program.intensity.nil? %>
                                     <%= "-" %>
-                                    <% elsif program.exercise.include? "quat"  %>
-                                    <%= (@max_weight.max_squat * (program.intensity * 0.01)).to_i %>lbs.
-                                    <% elsif program.exercise.include? "Bench" %>
-                                    <%= (@max_weight.max_bench * (program.intensity * 0.01)).to_i %>lbs.
-                                    <% elsif program.exercise.include? "Dead" %>
-                                    <%= (@max_weight.max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
                                     <% elsif program.intensity.present?  && program.intensity < 20 %>
                                     <%= program.intensity%>RPE
+                                    <% elsif program.exercise.include? "quat"  %>
+                                    <%= (@max_squat * (program.intensity * 0.01)).to_i %>lbs.
+                                    <% elsif program.exercise.include? "Bench" %>
+                                    <%= (@max_bench * (program.intensity * 0.01)).to_i %>lbs.
+                                    <% elsif program.exercise.include? "Dead" %>
+                                    <%= (@max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
                                     <% elsif program.intensity.nil? %>
                                     <% "-" %>
                                     <% else %>

@@ -11,7 +11,7 @@ helper TitlesHelper
 		@title = Title.find(params[:id])
 		@user = User.all
 		@program = Program.find(params[:id])
-		@max_weight = MaxWeight.last
+		@max_weight = current_user.max_weights.last
 
 		@max_bench = @max_weight.max_bench
 		@max_squat = @max_weight.max_squat
