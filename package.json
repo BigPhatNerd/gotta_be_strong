@@ -1,5 +1,8 @@
 {
   "name": "gotta_be_strong",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "ts-loader": "3.5.0",
+    "typescript": "^3.5.3"
+  }
 }

@@ -1,6 +1,6 @@
 class TitlesController < ApplicationController
-before_action :authenticate_user!
-helper TitlesHelper
+	before_action :authenticate_user!
+	helper TitlesHelper
 	def index
 		@titles = Title.all
 	end
@@ -16,7 +16,7 @@ helper TitlesHelper
 		@max_bench = @max_weight.max_bench
 		@max_squat = @max_weight.max_squat
 		@max_deadlift = @max_weight.max_deadlift
-
+		@number = 600
 		
 		
 	end

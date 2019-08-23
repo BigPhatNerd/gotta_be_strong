@@ -1,5 +1,7 @@
 <br />
 <div class="booyah-box col-12">
+    <br />
+    <br />
     <h1>
         <%= @title.title %>
     </h1>
@@ -9,126 +11,103 @@
     </div>
     <div id="hide-when-small">
         <div class="container">
-            <table class="table table-striped">
-                <thead>
-                    <div class="row">
-                        <div class="col-1">
-                            <tr>
-                                <th>
-                                    <p> Movement</p>
-                                </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center">Sets</p>
-                            </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center">Reps</p>
-                            </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center"> Intensity</p>
-                            </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center"> Load</p>
-                            </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center">Tempo</p>
-                            </th>
-                        </div>
-                        <div class="col-1">
-                            <th>
-                                <p class="text-center">Rest</p>
-                            </th>
-                        </div>
-                    </div>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @title.programs.each do |program| %>
-                    <div class="row">
-                        <div class="col-1">
-                            <tr>
-                                <td>
-                                    <p>
-                                        <%= program.exercise %>
-                                    </p>
-                                </td>
-                        </div>
-                        <div class="col-1 text-center">
-                            <td>
-                                <p class="text-center">
-                                    <%= program.sets %>
-                                </p>
-                            </td>
-                        </div>
-                        <div class="col-1">
-                            <td>
-                                <p class="text-center">
-                                    <%= program.reps %>
-                                </p>
-                            </td>
-                        </div>
-                        <div class="col-1">
-                            <td>
-                                <p class="text-center">
-                                    <% if program.intensity.nil? %>
-                                    <% ""%>
-                                    <% elsif program.intensity < 20 %>
-                                    <% "-" %>
-                                    <% else %>
-                                    <%= program.intensity%>%
-                                    <% end %>
-                                </p>
-                            </td>
-                        </div>
-                        <div class="col-1">
-                            <td>
-                                <p class="text-center">
-                                    <% if program.intensity.nil? %>
-                                    <%= "-" %>
-                                    <% elsif program.intensity.present?  && program.intensity < 20 %>
-                                    <%= program.intensity%>RPE
-                                    <% elsif program.exercise.include? "quat"  %>
-                                    <%= (@max_squat * (program.intensity * 0.01)).to_i %>lbs.
-                                    <% elsif program.exercise.include? "Bench" %>
-                                    <%= (@max_bench * (program.intensity * 0.01)).to_i %>lbs.
-                                    <% elsif program.exercise.include? "Dead" %>
-                                    <%= (@max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
-                                    <% elsif program.intensity.nil? %>
-                                    <% "-" %>
-                                    <% else %>
-                                    <%= "" %>
-                                    <% end %>
-                                </p>
-                            </td>
-                        </div>
-                        <div class="col-1">
-                            <td>
-                                <p class="text-center">
-                                    <%= program.tempo %>
-                                </p>
-                            </td>
-                        </div>
-                        <div class="col-1">
-                            <td>
-                                <p class="text-center">
-                                    <%= program.rest %> secs
-                                </p>
-                            </td>
-                        </div>
-                        </tr>
-                    </div>
-                    <% end %>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-2">
+                    <p> Movement</p>
+                </div>
+                <div class="col-1">
+                    <p class="text-center">Sets</p>
+                </div>
+                <div class="col-1">
+                    <p class="text-center">Reps</p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center"> Intensity</p>
+                </div>
+                <div class="col-1">
+                    <p class="text-center"> Load</p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center">Tempo</p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center">Rest</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div style='border-bottom:1px solid #ccc;'></div>
+                </div>
+            </div>
+            <% @title.programs.each do |program| %>
+            <div class="row">
+                <div class="col-2">
+                    <p>
+                        <%= program.exercise %>
+                </div>
+                <div class="col-1 text-center">
+                    <p class="text-center">
+                        <%= program.sets %>
+                    </p>
+                    < </div> <div class="col-1">
+                        <p class="text-center">
+                            <%= program.reps %>
+                        </p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center">
+                        <% if program.intensity.nil? %>
+                        <% ""%>
+                        <% elsif program.intensity < 20 %>
+                        <% "-" %>
+                        <% else %>
+                        <%= program.intensity%>%
+                        <% end %>
+                    </p>
+                </div>
+                <div class="col-1">
+                    <p class="text-center">
+                        <% if @max_bench && @max_squat && @max_deadlift %>
+                        <% if program.intensity.nil? %>
+                        <%= "-" %>
+                        <% elsif program.intensity.present?  && program.intensity < 20 %>
+                        <%= program.intensity%>RPE
+                        <% elsif program.exercise.include? "quat"   %>
+                        <%= (@max_squat * (program.intensity * 0.01)).to_i %>lbs.
+                        <% elsif program.exercise.include? "Bench"  %>
+                        <%= (@max_bench * (program.intensity * 0.01)).to_i %>lbs.
+                        <% elsif program.exercise.include? "Dead"  %>
+                        <%= (@max_deadlift * (program.intensity * 0.01)).to_i %>lbs.
+                        <% elsif program.intensity.nil? %>
+                        <% "-" %>
+                        <% else %>
+                        <%= "" %>
+                        <% end %>
+                        <% else %>
+                        <%= "" %>
+                        <% end %>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center">
+                        <%= program.tempo %>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="text-center">
+                        <%= program.rest %> secs
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 offset-5">
+                    <p id="demo">
+                    </p>
+                    <button onclick="clock()">Start counter</button>
+                    <button onclick="clearInterval(myTimer)">Stop counter</button>
+                </div>
+            </div>
+            <% end %>
         </div>
         <br />
         <div class="text-center">
