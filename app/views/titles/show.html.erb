@@ -49,10 +49,11 @@
                     <p class="text-center">
                         <%= program.sets %>
                     </p>
-                    < </div> <div class="col-1">
-                        <p class="text-center">
-                            <%= program.reps %>
-                        </p>
+                </div>
+                <div class="col-1">
+                    <p class="text-center">
+                        <%= program.reps %>
+                    </p>
                 </div>
                 <div class="col-2">
                     <p class="text-center">
@@ -100,17 +101,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-2 offset-5">
-                    <p id="demo">
+                <div class="col-2 offset-5 text-center">
+                    <h1 id="demo">
                         <script>
                         rest_in_seconds = <%= program.rest %>;
                         </script>
-                    </p>
-                    <button onclick="test()">Start counter</button>
-                    <button onclick="clearInterval(myTimer)">Stop counter</button>
-                    <p id="resetButton"> <button onclick="reset()">Reset</button></p>
+                    </h1>
                 </div>
             </div>
+            <div id="timerButtons" style="display:none;">
+                <div class="row">
+                    <div class="col-2 offset-2">
+                        <button class="timerButton" id="button1" onclick="switchButtons('button1')">Start Timer</button>
+                        <button class="timerButton" id="button2" onclick="switchButtons('button2')" style="display:none">Start Timer</button>
+                    </div>
+                    <div class="col-2 offset-1">
+                        <button class="timerButton" onclick="clearClock(myTimer)">Stop Timer</button>
+                    </div>
+                    <div class="col-2 offset-1">
+                        <button id="resetButton" class="timerButton" onclick="reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2 ">
+                    <button id="showTimer" name="timer" value="Show Div" onclick="showTimer()">Show Timer</button>
+                </div>
+            </div>
+            <br />
             <% end %>
         </div>
         <br />

@@ -19,7 +19,7 @@ body {
 }
 
 #demo {
-    color: white;
+    color: green;
 }
 
 h1,
@@ -59,6 +59,14 @@ p {
     background: rgba(0, 0, 0, 0.7);
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.timerButton {
+    width: 90px;
+    height: 50px;
+    background-color: #EEEEEE;
+    border-color: white;
+
 }
 
 .btn {
