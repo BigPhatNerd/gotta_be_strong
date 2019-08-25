@@ -18,6 +18,10 @@ body {
     padding: 0;
 }
 
+abbr[title="required"] {
+    display: none;
+}
+
 #demo {
     color: green;
 }

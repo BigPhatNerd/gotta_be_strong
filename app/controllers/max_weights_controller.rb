@@ -8,6 +8,8 @@ class MaxWeightsController < ApplicationController
 	def create
 		@max_weight = current_user.max_weights.create(max_weight_params)
 		redirect_to root_path
+		
+
 	end
 
 	
