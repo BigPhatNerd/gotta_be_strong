@@ -2,6 +2,7 @@ var remaining_rest;
 var myTimer;
 var startSound;
 var warningSound;
+var rest_in_seconds;
 
 
 
