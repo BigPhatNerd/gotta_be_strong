@@ -40,7 +40,7 @@
                 </div>
             </div>
             <% @title.programs.each do |program| %>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-2">
                     <p>
                         <%= program.exercise %>
@@ -101,17 +101,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-2 offset-5 text-center">
+                <div class="col-2 offset-5 justify-content-center">
                     <h1 id="demo">
                         <script>
                         rest_in_seconds = <%= program.rest %>;
+                        count = <%= @title.programs.count %>;
+
+                        console.log(rest_in_seconds);
                         </script>
                     </h1>
                 </div>
             </div>
             <div id="timerButtons" style="display:none;">
-                <div class="row">
-                    <div class="col-2 offset-2">
+                <div class="row justify-content-center">
+                    <div class="col-2 offset-1">
                         <button class="timerButton" id="button1" onclick="switchButtons('button1')">Start Timer</button>
                         <button class="timerButton" id="button2" onclick="switchButtons('button2')" style="display:none">Start Timer</button>
                     </div>

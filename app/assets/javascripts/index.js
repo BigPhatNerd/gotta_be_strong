@@ -1,5 +1,8 @@
 var remaining_rest;
 var myTimer;
+var startSound;
+var warningSound;
+
 
 
 
@@ -22,13 +25,19 @@ function initialClock() {
 }
 
 function myClock() {
+
     document.getElementById("demo").innerHTML = --remaining_rest;
     timerColor();
-    if (remaining_rest == 0) {
-        clearInterval(myTimer);
-        alert("Reached zero");
-    }
+    if (remaining_rest < 6 && remaining_rest > 1) {
+        warningBeep();
 
+    } else if (remaining_rest === 1) {
+        startBeep();
+    } else if (remaining_rest == 0) {
+        clearInterval(myTimer);
+        alert("Back to work you fat bitch.");
+        reset();
+    }
 }
 
 function clearClock(myTimer) {
@@ -38,30 +47,18 @@ function clearClock(myTimer) {
 
 }
 
-
 function switchButtons(buttonId) {
-    var hideBtn, showBtn;
+
     if (buttonId == 'button1') {
         initialClock();
-        showBtn = 'button2';
-        hideBtn = 'button1';
-        document.getElementById("button2").disabled = true;
-        document.getElementById("resetButton").disabled = true;
-
+        startBeep();
+        hidingStartAndReset();
     } else {
         clock();
-        showBtn = 'button2';
-        hideBtn = 'button1';
-        document.getElementById("button2").disabled = true;
-        document.getElementById("resetButton").disabled = true;
-
-
-
+        hidingStartAndReset();
     }
     document.getElementById(hideBtn).style.display = 'none';
     document.getElementById(showBtn).style.display = '';
-
-
 }
 
 function disableStartButton() {
@@ -80,6 +77,29 @@ function timerColor() {
 function showTimer() {
     document.getElementById('timerButtons').style.display = "block";
     document.getElementById('showTimer').style.visibility = "hidden";
+}
+
+function startBeep() {
+    startSound = new Audio('/audios/start_sound.mp3');
+    startSound.play();
+}
+
+function finalBeep() {
+    finalSound = new Audio('/audios/end_sound.mp3');
+    finalSound.play();
+}
+
+function warningBeep() {
+    warningSound = new Audio('/audios/warning_sound.mp3');
+    warningSound.play();
+}
+
+function hidingStartAndReset() {
+    var hideBtn, showBtn;
+    showBtn = 'button2';
+    hideBtn = 'button1';
+    document.getElementById("button2").disabled = true;
+    document.getElementById("resetButton").disabled = true;
 }
 
 
