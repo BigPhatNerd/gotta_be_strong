@@ -8,7 +8,7 @@ class Instructor::ProgramsController < ApplicationController
 	def create
 		@title = Title.find(params[:title_id])
 		@program = @title.programs.create(program_params)
-		redirect_to instructor_titles_path
+		redirect_to instructor_title_path(@title)
 
 	end
 	def edit
