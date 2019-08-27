@@ -1,5 +1,5 @@
 class Title < ApplicationRecord
-	belongs_to :user
+	belongs_to :week
 	has_many :programs
 
 	validates :title, presence: true

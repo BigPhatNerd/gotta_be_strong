@@ -3,6 +3,8 @@ var myTimer;
 
 
 
+
+
 function clock() {
     var resetButton = document.getElementById("resetButton");
     myTimer = setInterval(myClock, 1000);
@@ -12,7 +14,9 @@ function reset() {
     clearInterval(myTimer);
     remaining_rest = rest_in_seconds;
     document.getElementById("demo").innerHTML = remaining_rest;
-    document.getElementById("button2").disabled = false;
+    if ("button2" !== null) {
+        document.getElementById("button2").disabled = false;
+    }
 
 }
 
@@ -78,6 +82,7 @@ function timerColor() {
 }
 
 function showTimer() {
+
     document.getElementById('timerButtons').style.display = "block";
     document.getElementById('showTimer').style.visibility = "hidden";
 }

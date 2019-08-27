@@ -1,10 +1,13 @@
 class Instructor::TitlesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
+	attr_accessor :counter
+	def initialize(:counter)
 
 	def new
 		@title = Title.new
 
 	end
+
 	def index
 		@titles = Title.all
 	end
@@ -20,6 +23,7 @@ class Instructor::TitlesController < ApplicationController
 
 	def show
 		@title = Title.find(params[:id])
+		
 	end
 
 	def edit

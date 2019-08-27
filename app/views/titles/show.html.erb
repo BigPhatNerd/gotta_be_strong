@@ -39,7 +39,7 @@
                     <div style='border-bottom:1px solid #ccc;'></div>
                 </div>
             </div>
-            <% @title.programs.each do |program| %>
+            <% @title.programs.each_with_index do |program, index| %>
             <div class="row">
                 <div class="col-2">
                     <p>
@@ -109,6 +109,11 @@
                     </h1>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-2 ">
+                    <button id="showTimer" name="timer" value="Show Div" onclick="showTimer()">Show Timer</button>
+                </div>
+            </div>
             <div id="timerButtons" style="display:none;">
                 <div class="row">
                     <div class="col-2 offset-2">
@@ -116,19 +121,17 @@
                         <button class="timerButton" id="button2" onclick="switchButtons('button2')" style="display:none">Start Timer</button>
                     </div>
                     <div class="col-2 offset-1">
-                        <button class="timerButton" onclick="clearClock(myTimer)">Stop Timer</button>
+                        <button id="timerButton" class="timerButton" onclick="clearClock(myTimer)">Stop Timer</button>
                     </div>
                     <div class="col-2 offset-1">
                         <button id="resetButton" class="timerButton" onclick="reset()">Reset</button>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-2 ">
-                    <button id="showTimer" name="timer" value="Show Div" onclick="showTimer()">Show Timer</button>
-                </div>
-            </div>
             <br />
+            <script>
+            console.log('test');
+            </script>
             <% end %>
         </div>
         <br />
