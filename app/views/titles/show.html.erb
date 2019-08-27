@@ -39,6 +39,9 @@
                     <div style='border-bottom:1px solid #ccc;'></div>
                 </div>
             </div>
+            <script>
+            var rest_in_seconds = [];
+            </script>
             <% @title.programs.each_with_index do |program, index| %>
             <div class="row">
                 <div class="col-2">
@@ -104,7 +107,9 @@
                 <div class="col-2 offset-5 text-center">
                     <h1 id="demo">
                         <script>
-                        rest_in_seconds = <%= program.rest %>;
+                        rest_in_seconds.push(<%= program.rest %>);
+                        rest_in_seconds[<%= index %>];
+                        console.log(rest_in_seconds);
                         </script>
                     </h1>
                 </div>
