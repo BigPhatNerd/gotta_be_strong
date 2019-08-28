@@ -1,78 +1,63 @@
 var remaining_rest;
 var myTimer;
 
-
-
-
-
-function clock() {
-    var resetButton = document.getElementById("resetButton");
+function clock(count) {
+    var resetButton = document.getElementById("resetButton" + count);
     myTimer = setInterval(myClock, 1000);
 }
 
-function reset() {
+function reset(count) {
     clearInterval(myTimer);
     remaining_rest = rest_in_seconds;
-    document.getElementById("demo").innerHTML = remaining_rest;
+    document.getElementById("demo" + count).innerHTML = remaining_rest;
     if ("button2" !== null) {
-        document.getElementById("button2").disabled = false;
+        document.getElementById("button2" + count).disabled = false;
     }
-
 }
 
-function initialClock() {
-    reset();
-    clock();
+function initialClock(count) {
+    reset(counter);
+    clock(counter);
 }
 
-function myClock() {
-    document.getElementById("demo").innerHTML = --remaining_rest;
+function myClock(count) {
+    document.getElementById("demo" + count).innerHTML = --remaining_rest;
     timerColor();
     if (remaining_rest == 0) {
         clearInterval(myTimer);
         alert("Reached zero");
     }
-
 }
 
-function clearClock(myTimer) {
+function clearClock(myTimer, count) {
     clearInterval(myTimer);
-    document.getElementById("button2").disabled = false;
-    document.getElementById("resetButton").disabled = false;
-
+    document.getElementById("button1" + count).disabled = false;
+    document.getElementById("resetButton" + count).disabled = false;
 }
 
-
-function switchButtons(buttonId) {
+function switchButtons(buttonId, count) {
     var hideBtn, showBtn;
-    if (buttonId == 'button1') {
+    if (buttonId == 'button1' + count) {
         initialClock();
-        showBtn = 'button2';
-        hideBtn = 'button1';
-        document.getElementById("button2").disabled = true;
-        document.getElementById("resetButton").disabled = true;
-
+        showBtn = 'button2' + count;
+        hideBtn = 'button1' + count;
+        document.getElementById("button" + count).disabled = true;
+        document.getElementById("resetButton" + count).disabled = true;
     } else {
         clock();
-        showBtn = 'button2';
-        hideBtn = 'button1';
-        document.getElementById("button2").disabled = true;
-        document.getElementById("resetButton").disabled = true;
-
-
-
+        showBtn = 'button2' + count;
+        hideBtn = 'button1' + count;
+        document.getElementById("button2" + count).disabled = true;
+        document.getElementById("resetButton" + count).disabled = true;
     }
     document.getElementById(hideBtn).style.display = 'none';
     document.getElementById(showBtn).style.display = '';
-
-
 }
 
-function disableStartButton() {
-    if (document.getElementById('button2').clicked == true) {
-        document.getElementById("button2").disabled = true;
+function disableStartButton(count) {
+    if (document.getElementById('button2' + count).clicked == true) {
+        document.getElementById("button2" + count).disabled = true;
     }
-
 }
 
 function timerColor() {
@@ -81,16 +66,7 @@ function timerColor() {
     }
 }
 
-function showTimer() {
-
-    document.getElementById('timerButtons').style.display = "block";
-    document.getElementById('showTimer').style.visibility = "hidden";
+function showTimer(count) {
+    document.getElementById('timerButtons' + count).style.display = "block";
+    document.getElementById('showTimer' + count).style.visibility = "hidden";
 }
-
-
-
-
-//I don't have your menus, so this is commented out.  just uncomment for your usage
-// document.getElementById(menuToggle).toggle(); //step 1: toggle menu
-//document.getElementById(hideBtn).style.display = 'none'; //step 2 :additional feature hide button
-//document.getElementById(showBtn).style.display = ''; //step 3:additional feature show button

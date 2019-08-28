@@ -39,9 +39,7 @@
                     <div style='border-bottom:1px solid #ccc;'></div>
                 </div>
             </div>
-            <script>
-            var rest_in_seconds = [];
-            </script>
+            <%= counter = 0 %>
             <% @title.programs.each_with_index do |program, index| %>
             <div class="row">
                 <div class="col-2">
@@ -105,38 +103,34 @@
             </div>
             <div class="row">
                 <div class="col-2 offset-5 text-center">
-                    <h1 id="demo">
+                    <h1 id="demo<%=index%>">
                         <script>
-                        rest_in_seconds.push(<%= program.rest %>);
-                        rest_in_seconds[<%= index %>];
-                        console.log(rest_in_seconds);
+                        rest_in_seconds = 5;
                         </script>
                     </h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2 ">
-                    <button id="showTimer" name="timer" value="Show Div" onclick="showTimer()">Show Timer</button>
+                    <button id="showTimer<%=index%>" name="timer" value="Show Div" onclick="showTimer(<%=counter%>)">Show Timer</button>
                 </div>
             </div>
-            <div id="timerButtons" style="display:none;">
+            <div id="timerButtons<%=index%>" style="display:none;">
                 <div class="row">
                     <div class="col-2 offset-2">
-                        <button class="timerButton" id="button1" onclick="switchButtons('button1')">Start Timer</button>
-                        <button class="timerButton" id="button2" onclick="switchButtons('button2')" style="display:none">Start Timer</button>
+                        <button class="timerButton" id="button1<%=index%>" onclick="switchButtons(this, <%= index%>)">Start Timer</button>
+                        <button class="timerButton" id="button2<%=index%>" onclick="switchButtons(this, <%=index%>)" style="display:none">Start Timer</button>
                     </div>
                     <div class="col-2 offset-1">
-                        <button id="timerButton" class="timerButton" onclick="clearClock(myTimer)">Stop Timer</button>
+                        <button id="timerButton<%=index%>" class="timerButton" onclick="clearClock(myTimer, <%=counter%>)">Stop Timer</button>
                     </div>
                     <div class="col-2 offset-1">
-                        <button id="resetButton" class="timerButton" onclick="reset()">Reset</button>
+                        <button id="resetButton<%=index%>" class="timerButton" onclick="reset(<%= counter %>)">Reset</button>
                     </div>
                 </div>
             </div>
             <br />
-            <script>
-            console.log('test');
-            </script>
+            <%=counter += 1 %>
             <% end %>
         </div>
         <br />
