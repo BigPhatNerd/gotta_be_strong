@@ -73,6 +73,7 @@
 
 
 
+
   function startBeep() {
       startSound = new Audio('/audios/start_sound.mp3');
       startSound.play();
@@ -94,9 +95,11 @@
       document.getElementById("button2" + count).disabled = true;
       document.getElementById("resetButton" + count).disabled = true;
 
+
   }
 
   function showTimer(count) {
       document.getElementById('timerButtons' + count).style.display = "block";
       document.getElementById('showTimer' + count).style.visibility = "hidden";
+
   }
