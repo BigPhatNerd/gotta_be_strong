@@ -41,7 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 group :production, :staging do
-      gem 'pg', '>= 0.18', '< 2.0'
+      
       gem 'rails_12factor'
     end
 group :development do
