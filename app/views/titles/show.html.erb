@@ -40,7 +40,7 @@
                 </div>
             </div>
             <script>
-            var rest_array = [];
+            var rest_in_seconds = [];
             var click = 0;
             </script>
             <%= counter = 0 %>
@@ -109,11 +109,9 @@
                 <div class="col-2 offset-5 text-center">
                     <h1 id="demo<%=index%>">
                         <script>
-                        rest_array.push(<%=program.rest%>);
-                        rest_in_seconds = rest_array[<%=index%>];
+                        rest_in_seconds[<%=index%>] = <%=program.rest%>;
 
-
-
+                        console.log(rest_in_seconds[<%=index%>]);
                         click++;
                         </script>
                     </h1>

@@ -8,7 +8,7 @@
 
   function reset(count) {
       clearInterval(myTimer);
-      remaining_rest = rest_in_seconds;
+      remaining_rest = rest_in_seconds[count];
       document.getElementById("demo" + count).innerHTML = remaining_rest;
       if ("button2" !== null) {
           document.getElementById("button2" + count).disabled = false;
@@ -61,6 +61,7 @@
   }
 
   function timerColor(count) {
+
       if (remaining_rest < 10) {
           document.getElementById("demo" + count).style.color = "red";
       }
