@@ -5,13 +5,8 @@
     <hr />
     <% @titles.each do |title| %>
     <h2 class="text-center">
-        <%=  title.title %>
+        <%= link_to title.title, title_path(title) %>
     </h2>
-    <br />
-    </h2>
-    <div class=" text-center">
-        <%= link_to 'View Workout', title_path(title), class: 'btn btn-success btn-large' %>
-    </div>
     <br class="clr" />
     <% end %>
     <br />
