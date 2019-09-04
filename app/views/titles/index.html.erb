@@ -7,12 +7,14 @@
     <h2 class="text-center">
         <%= link_to title.title, title_path(title) %>
     </h2>
-    <br class="clr" />
-    <% end %>
     <br />
+    <% end %>
     <div class="text-center">
-        <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
+        <%= link_to 'Back to Program Weeks', program_name_weeks_path(@weeks), class: 'btn btn-success btn-large' %>
     </div>
     <br />
-    <br />
+</div>
+<br />
+<div class="text-center">
+    <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
 </div>

@@ -9,6 +9,7 @@ config.action_mailer.default_url_options = { host: 'lgotta-be-strong.herokuapp.c
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -23,7 +24,7 @@ config.action_mailer.default_url_options = { host: 'lgotta-be-strong.herokuapp.c
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.

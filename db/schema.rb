@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_233624) do
+ActiveRecord::Schema.define(version: 2019_08_29_202754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2019_08_25_233624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_max_weights_on_user_id"
+  end
+
+  create_table "program_names", force: :cascade do |t|
+    t.string "program_name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_program_names_on_user_id"
   end
 
   create_table "programs", force: :cascade do |t|

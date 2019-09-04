@@ -1,0 +1,18 @@
+<br />
+<br />
+<div class="row ">
+    <div class="booyah-box col-10 offset-1 ">
+        <h1 class="text-center"> Weeks Index Page</h1>
+        <% @program_names.each do |program_name| %>
+        <h1>
+            <%= program_name.program_name %>
+        </h1>
+        <% @weeks.each do |week| %>
+        <h1>
+            <%= link_to week.week_name, week_titles_path(week) %>
+        </h1>
+        <% end %>
+        <% end %>
+        <hr />
+    </div>
+</div>

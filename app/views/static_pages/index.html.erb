@@ -12,15 +12,21 @@
                     </div>
                 </div>
                 <br />
-                <%= link_to 'View Your Workout', titles_path, class: 'btn btn-success' %>
+                <%= link_to 'View Your Workout', program_names_path, class: 'btn btn-success' %>
                 <br />
                 <br />
                 <%= link_to 'Enter Max Weight', new_max_weight_path, class: 'btn btn-success' %>
                 <br />
                 <br />
                 <br />
-                <div id="hide-create-workout">
-                    <%= link_to 'Create a Workout', instructor_titles_path, class: 'yellow btn btn-whatever' %>
+                <br />
+                <div class="row no-gutters">
+                    <div class="col-2 offset-3 hide-create-workout">
+                        <%= link_to 'Create a Program', new_instructor_program_name_path, class: 'yellow btn btn-whatever' %>
+                    </div>
+                    <div class="col-2 offset-2 hide-create-workout">
+                        <%= link_to 'View Programs', instructor_program_names_path, class: 'yellow btn btn-whatever' %>
+                    </div>
                 </div>
                 <br />
                 <br />

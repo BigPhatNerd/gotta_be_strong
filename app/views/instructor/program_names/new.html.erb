@@ -1,0 +1,15 @@
+<br />
+<div class="booyah-box col-10 offset-1  text-center">
+    <h1> Add a new Program Name</h1>
+    <%= simple_form_for @program_name, url: instructor_program_names_path do |f| %>
+    <div class="container ">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%= f.input :program_name, placeholder: "ex Big Grody Monster" %>
+            </div>
+        </div>
+        <%= f.submit "Create", class: 'btn btn-success' %>
+        <% end %>
+    </div>
+    <br />
+</div>

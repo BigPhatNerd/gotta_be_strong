@@ -1,0 +1,21 @@
+<div class="booyah-box col-10 offset-1">
+    <h1 class="text-center">Programs Names Index Page</h1>
+    <hr />
+    <% @program_names.each do |program_name| %>
+    <h1 class="text-center">
+        <hr />
+        <%=  program_name.program_name %>
+    </h1>
+    <div class="text-center">
+        <%= link_to 'View Weeks',  program_name_weeks_path(program_name), class: 'btn btn-success btn-large' %>
+    </div>
+    <br />
+    <% end %>
+    <br />
+    <br />
+</div>
+<br />
+<br />
+<div class="text-center">
+    <%= link_to 'Homepage', root_path, class: 'yellow btn btn-whatever' %>
+</div>

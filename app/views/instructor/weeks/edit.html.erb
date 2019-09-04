@@ -1,0 +1,15 @@
+<br />
+<div class="booyah-box col-10 offset-1  text-center">
+    <h1> Edit Week</h1>
+    <%= simple_form_for @week, url: instructor_program_name_week_path do |f| %>
+    <div class="container ">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <%= f.input :week_name, placeholder: "ex Week1 " %>
+            </div>
+        </div>
+        <%= f.submit 'Update', class: 'btn btn-success' %>
+        <% end %>
+    </div>
+    <br />
+</div>

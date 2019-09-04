@@ -5,18 +5,22 @@ class Instructor::TitlesController < ApplicationController
 	
 
 	def new
+		@week = Week.find(params[:week_id])
 		@title = Title.new
 
 	end
 
 	def index
 		@titles = Title.all
+		@weeks = Week.all
+		
 	end
 
 	def create
-		@title = current_user.titles.create(title_params)
+		@week = Week.find(params[:week_id])
+		@title = @week.titles.create(title_params)
 		if @title.valid?
-			redirect_to instructor_title_path(@title)
+			redirect_to instructor_week_titles_path(@title)
 		else
 			render :new, status: :unprocessable_entity
 		end
@@ -31,10 +35,12 @@ class Instructor::TitlesController < ApplicationController
 
 	def edit
 		@title = Title.find(params[:id])
-		if @title.user != current_user
+=begin		
+		if @title.user_id != current_user
 			return render plain: 'Not Allowed. You must be the creator of the program to edit', status: :forbidden
 			
 		end
+=end
 	end
 
 	

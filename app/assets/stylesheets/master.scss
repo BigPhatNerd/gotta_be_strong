@@ -73,9 +73,9 @@ p {
 
 }
 
-#showTimer {
+.showTimerButton {
     width: 120px;
-    height: 30px;
+    height: 35px;
     background-color: #EEEEEE;
     border-color: white;
 }
@@ -98,7 +98,7 @@ a h3 .links {
 }
 
 a {
-    color: grey;
+    color: white;
 }
 
 
@@ -201,7 +201,7 @@ h1 {
     visibility: hidden;
 }
 
-#hide-create-workout {
+.hide-create-workout {
     visibility: hidden;
 }
 
@@ -239,7 +239,7 @@ h1 {
         font-size: 24px;
     }
 
-    #hide-create-workout {
+    .hide-create-workout {
         visibility: visible;
     }
 }

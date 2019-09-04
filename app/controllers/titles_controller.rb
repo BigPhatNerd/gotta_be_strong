@@ -3,6 +3,7 @@ class TitlesController < ApplicationController
 	helper TitlesHelper
 	def index
 		@titles = Title.all
+		@weeks = Week.all
 	end
 
 	def show

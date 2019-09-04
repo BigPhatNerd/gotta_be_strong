@@ -2,6 +2,8 @@ class ProgramsController < ApplicationController
 def index
 		@titles = Title.all
 		@programs = Program.all
+		
+
 	end
 
 	def show
