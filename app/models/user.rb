@@ -1,5 +1,5 @@
 class User < ApplicationRecord
- has_many :program_names
+ has_many :program_names, :dependent => :destroy
  
  has_many :max_weights
  

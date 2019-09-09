@@ -1,7 +1,7 @@
 <br />
 <div class="booyah-box col-10 offset-1  text-center">
     <h1> Edit Workout</h1>
-    <%= simple_form_for @program, url: instructor_program_path do |f| %>
+    <%= simple_form_for @program, url: instructor_week_title_program_path do |f| %>
     <div class="container ">
         <div class="row">
         </div>
@@ -38,3 +38,5 @@
         <%= f.submit "Update", class: 'btn btn-success' %>
         <% end %>
     </div>
+    <br />
+</div>

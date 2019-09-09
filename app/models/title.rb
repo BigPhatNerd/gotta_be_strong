@@ -1,7 +1,7 @@
 class Title < ApplicationRecord
 	belongs_to :week
-	has_many :programs
+	has_many :programs, :dependent => :destroy
 
-	validates :title, presence: true
+	
 
 end

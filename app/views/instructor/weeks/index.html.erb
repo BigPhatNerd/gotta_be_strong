@@ -18,12 +18,16 @@
             <i class="far fa-trash-alt" style='color:white'></i>
             <% end %>
         </h1>
-        <h3 class="text-center">
-            <%= link_to 'New Workout Day', new_instructor_week_title_path(week), class: 'btn btn-success btn-lg' %>
-        </h3>
         <% end %>
         <br />
         <% end %>
+        <div class="text-center">
+            <%= link_to 'Build Week', new_instructor_program_name_week_path(@program_name), class: 'btn btn-success btn-large' %>
+        </div>
         <hr />
     </div>
+</div>
+<br />
+<div class="text-center">
+    <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
 </div>

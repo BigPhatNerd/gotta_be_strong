@@ -6,27 +6,27 @@
     <div class="container">
         <div class="row">
             <div class="col-4 text-center">
-                <%= link_to 'Add Movement ', new_instructor_title_program_path(@title), class: 'btn btn-success btn-small' %>
+                <%= link_to 'Add Movement ', new_instructor_week_title_program_path(@week,@title), class: 'btn btn-success btn-small' %>
             </div>
             <div class="col-4 offset-3 text-center">
-                <%= link_to 'Edit Day', edit_instructor_week_title_path(@title), class: 'btn btn-success btn-small' %>
+                <%= link_to 'Edit Day', edit_instructor_week_title_path(@week,@title), class: 'btn btn-success btn-small' %>
             </div>
         </div>
         <br />
         <div class="row">
             <br class="clr" />
             <div class="col-4 text-center">
-                <%= link_to 'Delete Day', instructor_title_path(@title), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger btn-small' %>
+                <%= link_to 'Delete Day', instructor_week_title_path(@week,@title), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger btn-small' %>
             </div>
             <br />
             <div class="col-4 offset-3 text-center">
-                <%= link_to ' New Day', new_instructor_title_path, class: 'btn btn-success btn-small' %>
+                <%= link_to ' New Day', new_instructor_week_title_path, class: 'btn btn-success btn-small' %>
             </div>
         </div>
     </div>
     <br />
     <div class="text-center">
-        <%= link_to 'All Days', instructor_titles_path, class: 'btn btn-success' %>
+        <%= link_to 'All Days', instructor_week_titles_path(@week), class: 'btn btn-success' %>
     </div>
     <br />
 </div>
@@ -82,7 +82,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @title.programs.each do |program| %>
+                    <% @programs.each do |program| %>
                     <div class="row">
                         <div class="col-1">
                             <tr>
@@ -130,7 +130,7 @@
                         <div class="col-1">
                             <td>
                                 <p class="text-center">
-                                    <%=link_to edit_instructor_title_program_path(program),  class: "edit-symbol" do %>
+                                    <%=link_to edit_instructor_week_title_program_path(@week,@title, program),  class: "edit-symbol" do %>
                                     <i class="far fa-edit" style="color:white"></i>
                                     <% end %>
                                 </p>
@@ -139,7 +139,7 @@
                         <div class="col-1">
                             <td>
                                 <p class="text-center">
-                                    <%= link_to instructor_title_program_path(program), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'delete-symbol' do %>
+                                    <%= link_to instructor_week_title_program_path(@week,@title,program), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'delete-symbol' do %>
                                     <i class="far fa-trash-alt" style='color:white'></i>
                                     <% end %>
                                 </p>
@@ -160,3 +160,5 @@
 <div class="text-center">
     <%= link_to "Homepage", root_path, class: 'btn btn-success' %>
 </div>
+&nbsp;
+&nbsp;
