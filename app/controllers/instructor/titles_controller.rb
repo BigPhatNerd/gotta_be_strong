@@ -19,7 +19,7 @@ class Instructor::TitlesController < ApplicationController
 	def create
 		@title = @week.titles.create(title_params)
 		if @title.valid?
-			redirect_to instructor_week_titles_path(@week)
+			redirect_to instructor_week_title_path(@week,@title)
 		else
 			render :new, status: :unprocessable_entity
 		end
@@ -38,7 +38,7 @@ class Instructor::TitlesController < ApplicationController
 	def update
 		@title.update_attributes(title_params)
 		if @title.valid?
-			redirect_to instructor_week_titles_path(@week)
+			redirect_to instructor_week_title_path(@week, @title)
 		else
 			render :edit, status: :unprocessable_entity
 		end
