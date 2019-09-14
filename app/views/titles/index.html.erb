@@ -3,11 +3,13 @@
 <div class="booyah-box col-10 offset-1">
     <h1 class="text-center">You Gotta Be Strong</h1>
     <hr />
+    <h1>
+        <%= @week.week_name %>
+    </h1>
     <% @titles.each do |title| %>
     <h2 class="text-center">
-        <%= link_to title.title, title_path(title) %>
+        <%= link_to title.title, week_title_path(@week, title) %>
     </h2>
-    <br />
     <% end %>
     <div class="text-center">
         <%= link_to 'Back to Program Weeks', program_name_weeks_path(@weeks), class: 'btn btn-success btn-large' %>

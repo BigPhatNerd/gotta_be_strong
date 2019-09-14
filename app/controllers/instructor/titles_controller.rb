@@ -1,7 +1,7 @@
 class Instructor::TitlesController < ApplicationController
 	before_action :authenticate_user!
 	
-	before_action :set_week, only: [:new, :show, :edit, :index, :create, :show, :update, :destroy]
+	before_action :set_week, only: [:new, :show, :edit, :index, :create, :update, :destroy]
 	before_action :set_title, only: [:show, :edit, :update, :destroy]
 
 	

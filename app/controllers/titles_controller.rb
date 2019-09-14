@@ -1,9 +1,11 @@
 class TitlesController < ApplicationController
 	before_action :authenticate_user!
-	helper TitlesHelper
+	before_action :set_week, only: [:show, :index]
 	def index
+		
 		@titles = Title.all
 		@weeks = Week.all
+		
 	end
 
 	def show
@@ -11,7 +13,7 @@ class TitlesController < ApplicationController
 		
 		@title = Title.find(params[:id])
 		@user = User.all
-		@program = Program.find(params[:id])
+		
 		@max_weight = current_user.max_weights.last
 
 		@max_bench = @max_weight.max_bench
@@ -21,5 +23,12 @@ class TitlesController < ApplicationController
 		
 		
 	end
+
+	private
+
+	def set_week
+		@week ||= Week.find(params[:week_id])
+	end
+
 	
 end
