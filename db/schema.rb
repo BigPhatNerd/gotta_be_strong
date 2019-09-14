@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_202754) do
+ActiveRecord::Schema.define(version: 2019_09_14_204816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_202754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "week_id"
+    t.boolean "title_completed", default: false
     t.index ["user_id"], name: "index_titles_on_user_id"
     t.index ["week_id"], name: "index_titles_on_week_id"
   end
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_202754) do
     t.integer "program_name_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "week_completed", default: false
     t.index ["program_name_id"], name: "index_weeks_on_program_name_id"
     t.index ["user_id"], name: "index_weeks_on_user_id"
   end
