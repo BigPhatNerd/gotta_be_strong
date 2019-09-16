@@ -61,6 +61,6 @@ class Instructor::TitlesController < ApplicationController
 	end
 
 	def title_params
-		params.require(:title).permit(:title)
+		params.require(:title).permit(:title, :title_completed)
 	end
 end

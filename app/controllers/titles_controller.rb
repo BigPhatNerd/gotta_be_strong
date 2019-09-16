@@ -5,6 +5,7 @@ class TitlesController < ApplicationController
 		
 		@titles = Title.all
 		@weeks = Week.all
+
 		
 	end
 
@@ -24,10 +25,15 @@ class TitlesController < ApplicationController
 		
 	end
 
+
 	private
 
 	def set_week
 		@week ||= Week.find(params[:week_id])
+	end
+
+	def title_params
+		params.require(:title).permit(:title, :title_completed)
 	end
 
 	

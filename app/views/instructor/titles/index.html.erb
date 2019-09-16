@@ -5,9 +5,10 @@
     <h1>
         <%= @week.week_name %>
     </h1>
-    <% @titles.each do |title| %>
+    <% @week.titles.each do |title| %>
     <h3 class="links text-center">
-        <%= link_to title.title, instructor_week_title_path(@week,title) %> &nbsp;&nbsp;
+        <%= link_to title.title, instructor_week_title_path(@week,title) %>
+        &nbsp;&nbsp;
         <%=link_to  edit_instructor_week_title_path(@week,title),  class: "edit-symbol" do %>
         <i class="far fa-edit" style="color:white"></i>
         <% end %>&nbsp;&nbsp;

@@ -31,9 +31,9 @@ namespace :instructor do
 		resources :weeks, only: [:index, :show]
 	end
 	resources :weeks, only: [:index, :show] do 
-		resources :titles, only: [:index, :show]
+		resources :titles, only: [:index, :show, ]
 	end
-	resources :titles, only: [:index, :show] do
+	resources :titles, only: [:index, :show, :edit, :update] do
 		resources :programs, only: [:index, :show]
 	end
 
