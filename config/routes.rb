@@ -37,7 +37,7 @@ namespace :instructor do
 		resources :programs, only: [:index, :show]
 	end
 
-
+put 'complete_title', to: 'titles#complete', as: :complete_titles
 	resources :max_weights, only: [:index, :new, :create, :show]
 	
 end

@@ -1,17 +1,15 @@
 class TitlesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_week, only: [:show, :index]
+	before_action :set_week, only: [:show]
 	def index
-		
+		@title_incomplete = Title.title_incomplete
+		@title_completed = Title.title_completed
 		@titles = Title.all
-		@weeks = Week.all
-
-		
+		@weeks = Week.all	
+		@week = Week.find(params[:week_id])	
 	end
 
-	def show
-
-		
+	def show	
 		@title = Title.find(params[:id])
 		@user = User.all
 		
@@ -21,10 +19,14 @@ class TitlesController < ApplicationController
 		@max_squat = @max_weight.max_squat
 		@max_deadlift = @max_weight.max_deadlift
 		@number = 600
-		
-		
+				
 	end
 
+def complete
+	
+Title.where(id: params[:title_id]).update_all(title_completed: true)
+redirect_to weeks_path
+end
 
 	private
 
