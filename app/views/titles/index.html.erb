@@ -7,23 +7,15 @@
         <%= @week.week_name %>
     </h1>
     <% @week.titles.each do |title| %>
+    <% if title.title_completed === false %>
     <h2 class="text-center">
-        <%  @title_incomplete.each do |incomplete| %>
         <%= link_to title.title, week_title_path(@week, title) %>
         <%= form_tag(complete_titles_path, method: :put) do %>
-        <%= check_box_tag 'title_id[]', incomplete.id %>
+        <%= check_box_tag 'title_id[]', @title_incomplete %>
         <%= submit_tag 'Mark as Complete' %>
-        <% end %>
         <% end %>
     </h2>
     <% end %>
-    <br />
-    <% for title in @title_completed %>
-    <% @week.titles.each do |title| %>
-    <h2 class="text-center">
-        <%= link_to title.title, week_title_path(@week, title) %>
-        <% end %>
-    </h2>
     <% end %>
     <div class="text-center">
         <%= link_to 'Back to Program Weeks', program_name_weeks_path(@weeks), class: 'btn btn-success btn-large' %>
