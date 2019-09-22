@@ -6,7 +6,7 @@
     <h1>
         <%= @week.week_name %>
     </h1>
-    <% @titles.each do |title| %>
+    <% @week.titles.each do |title| %>
     <h2 class="text-center">
         <%= link_to title.title, week_title_path(@week, title) %>
     </h2>
