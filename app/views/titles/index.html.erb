@@ -7,7 +7,6 @@
         <%= @week.week_name %>
     </h1>
     <% @week.titles.each do |title| %>
-    <% if title.title_completed === false %>
     <h2 class="text-center">
         <%= link_to title.title, week_title_path(@week, title) %>
         <%= form_tag(complete_titles_path, method: :put) do %>

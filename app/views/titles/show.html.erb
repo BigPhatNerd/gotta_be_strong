@@ -44,7 +44,7 @@
             var click = 0;
             </script>
             <%= counter = 0 %>
-            <% @title.programs.each_with_index do |program, index| %>
+            <% @title.programs.each do |program| %>
             <div class="row">
                 <div class="col-2">
                     <p>
@@ -107,29 +107,29 @@
             </div>
             <div class="row ">
                 <div class="col-2 offset-5 text-center">
-                    <h1 id="demo<%=index%>">
+                    <h1 id="demo<%=counter%>">
                         <script>
-                        rest_in_seconds[<%=index%>] = <%=program.rest%>;
+                        rest_in_seconds[<%=counter%>] = <%=program.rest%>;
                         </script>
                     </h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2 text-center ">
-                    <button class="showTimerButton" id="showTimer<%=index%>" name="timer" value="Show Div" onclick="showTimer(<%=counter%>)">Show Timer</button>
+                    <button class="showTimerButton" id="showTimer<%=counter%>" name="timer" value="Show Div" onclick="showTimer(<%=counter%>)">Show Timer</button>
                 </div>
             </div>
-            <div id="timerButtons<%=index%>" style="display:none;">
+            <div id="timerButtons<%=counter%>" style="display:none;">
                 <div class="row">
                     <div class="col-2 offset-2 text-center">
-                        <button class="timerButton" id="button1<%=index%>" onclick="switchButtons(this, <%= index%>)">Start Timer</button>
-                        <button class="timerButton" id="button2<%=index%>" onclick="switchButtons(this, <%=index%>)" style="display:none">Start Timer</button>
+                        <button class="timerButton" id="button1<%=counter%>" onclick="switchButtons(this, <%= counter%>)">Start Timer</button>
+                        <button class="timerButton" id="button2<%=counter%>" onclick="switchButtons(this, <%=counter%>)" style="display:none">Start Timer</button>
                     </div>
                     <div class="col-2 offset-1 text-center">
-                        <button id="timerButton<%=index%>" class="timerButton" onclick="clearClock(myTimer, <%=counter%>)">Stop Timer</button>
+                        <button id="timerButton<%=counter%>" class="timerButton" onclick="clearClock(myTimer, <%=counter%>)">Stop Timer</button>
                     </div>
                     <div class="col-2 offset-1 text-center">
-                        <button id="resetButton<%=index%>" class="timerButton" onclick="reset(<%= counter %>)">Reset</button>
+                        <button id="resetButton<%=counter%>" class="timerButton" onclick="reset(<%= counter %>)">Reset</button>
                     </div>
                 </div>
             </div>
