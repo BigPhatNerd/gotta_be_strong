@@ -2,15 +2,38 @@
 <br />
 <div class="row ">
     <div class="booyah-box col-10 offset-1 ">
-        <% @program_names.each do |program_name| %>
         <h1>
-            <%= program_name.program_name %>
+            <%= @program_name.program_name %>
         </h1>
-        <% @weeks.each do |week| %>
+        <% @program_name.weeks.incomplete.each do |week| %>
         <h1>
             <%= link_to week.week_name, week_titles_path(week) %>
+            <br />
+            <%= link_to "Mark as Done", complete_week_path(week), method: :put, class: 'btn btn-success' %>
         </h1>
         <% end %>
+        <hr />
+    </div>
+</div>
+<br />
+<div class="text-center">
+    <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
+</div>
+<br />
+<div class="row ">
+    <div class="booyah-box col-10 offset-1 ">
+        <h1 class="grey">
+            Weeks Completed
+        </h1>
+        <h1 class="grey">
+            <%= @program_name.program_name %>
+        </h1>
+        <% @program_name.weeks.completed.each do |week| %>
+        <h1>
+            <%= link_to week.week_name, week_titles_path(week) %>
+            <br />
+            <%= link_to "Move to Incomplete", incomplete_week_path(week), method: :delete, class: 'btn btn-success' %>
+        </h1>
         <% end %>
         <hr />
     </div>

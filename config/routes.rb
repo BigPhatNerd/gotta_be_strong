@@ -36,8 +36,12 @@ namespace :instructor do
 	resources :titles, only: [:index, :show, :edit, :update] do
 		resources :programs, only: [:index, :show]
 	end
+match '/weeks/complete/:id' => 'weeks#complete', as: 'complete_week', via: :put
+match '/weeks/complete/:id' => 'weeks#incomplete', as: 'incomplete_week', via: :delete
+match '/titles/complete/:id' => 'titles#complete', as: 'complete_title', via: :put
+match '/titles/complete/:id' => 'titles#incomplete', as: 'incomplete_title', via: :delete
 
-put 'complete_title', to: 'titles#complete', as: :complete_titles
+
 	resources :max_weights, only: [:index, :new, :create, :show]
 	
 end

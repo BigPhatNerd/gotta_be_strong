@@ -2,8 +2,7 @@ class TitlesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_week, only: [:show]
 	def index
-		@title_incomplete = Title.title_incomplete
-		@title_completed = Title.title_completed
+		
 		@titles = Title.all
 		@weeks = Week.all	
 		@week = Week.find(params[:week_id])	
@@ -24,9 +23,18 @@ class TitlesController < ApplicationController
 
 def complete
 	
-Title.where(id: params[:title_id]).update_all(title_completed: true)
-redirect_to weeks_path
+@title =  Title.find(params[:id])
+@title.title_completed = true
+@title.save
+redirect_back(fallback_location: root_path)
 end
+
+def incomplete
+@title = Title.find(params[:id])
+@title.title_completed = false
+@title.save
+redirect_back(fallback_location: root_path)
+	end
 
 	private
 
