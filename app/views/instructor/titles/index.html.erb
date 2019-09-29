@@ -9,7 +9,7 @@
     <h3 class="links text-center">
         <%= link_to title.title, instructor_week_title_path(@week,title) %>
         &nbsp;&nbsp;
-        <%=link_to  edit_instructor_week_title_path(@week,title),  class: "edit-symbol" do %>
+        <%=link_to  edit_instructor_week_title_path(@week,title),  class: 'edit-symbol' do %>
         <i class="far fa-edit" style="color:white"></i>
         <% end %>&nbsp;&nbsp;
         <%= link_to instructor_week_title_path(@week, title), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'delete-symbol' do %>

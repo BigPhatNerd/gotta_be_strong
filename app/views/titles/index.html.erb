@@ -8,9 +8,10 @@
     </h1>
     <% @week.titles.incomplete.each do |title| %>
     <h2 class="text-center">
-        <%= link_to title.title, week_title_path(@week, title) %>
-        <br />
-        <%= link_to "Done", complete_title_path(title), method: :put, class: 'btn btn-success' %>
+        <%= link_to title.title, week_title_path(@week, title) %> &nbsp;&nbsp;
+        <%= link_to complete_title_path(title), method: :put, class: 'check-symbol' do %>
+        <i class="far fa-check-circle" style="color:green"></i>
+        <% end %>
     </h2>
     <% end %>
     <br />
@@ -28,9 +29,10 @@
     </h1>
     <% @week.titles.completed.each do |title| %>
     <h2 class="text-center">
-        <%= link_to title.title, week_title_path(@week, title) %>
-        <br />
-        <%= link_to "Move to Incomplete", incomplete_title_path(title), method: :delete, class: 'btn btn-success' %>
+        <%= link_to title.title, week_title_path(@week, title) %> &nbsp;&nbsp;
+        <%= link_to  incomplete_title_path(title), method: :delete, class: 'check-symbol' do %>
+        <i class="far fa-check-circle" style="color:red"></i>
+        <% end %>
     </h2>
     <br />
     <% end %>
