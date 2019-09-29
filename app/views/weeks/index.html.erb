@@ -27,7 +27,7 @@
             Weeks Completed
         </h1>
         <% @program_name.weeks.completed.each do |week| %>
-        <h1>
+        <h1 class="test">
             <%= link_to week.week_name, week_titles_path(week) %> &nbsp;&nbsp;
             <%= link_to incomplete_week_path(week), method: :delete, class: 'check-symbol' do %>
             <i class="far fa-check-circle" style="color:red"></i>
