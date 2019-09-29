@@ -15,7 +15,7 @@
     <% end %>
     <br />
     <div class="text-center">
-        <%= link_to 'Back to Program Weeks', program_name_weeks_path(@weeks), class: 'btn btn-success btn-large' %>
+        <%= link_to 'Back to Program Weeks', program_name_weeks_path(@week.program_name.id), class: 'btn btn-success btn-large' %>
     </div>
     <br />
 </div>
@@ -32,12 +32,10 @@
         <br />
         <%= link_to "Move to Incomplete", incomplete_title_path(title), method: :delete, class: 'btn btn-success' %>
     </h2>
-    <% end %>
-    <div class="text-center">
-        <%= link_to 'Back to Program Weeks', program_name_weeks_path(@weeks), class: 'btn btn-success btn-large' %>
-    </div>
     <br />
+    <% end %>
 </div>
+<br />
 <div class="text-center">
     <%= link_to 'Homepage', root_path, class: 'btn btn-success btn-large' %>
 </div>
