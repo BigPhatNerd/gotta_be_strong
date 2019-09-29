@@ -25,9 +25,6 @@
         <h1 class="grey">
             Weeks Completed
         </h1>
-        <h1 class="grey">
-            <%= @program_name.program_name %>
-        </h1>
         <% @program_name.weeks.completed.each do |week| %>
         <h1>
             <%= link_to week.week_name, week_titles_path(week) %>
